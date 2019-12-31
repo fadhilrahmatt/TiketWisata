@@ -35,8 +35,8 @@ class CheckoutController extends Controller
         TransactionDetail::create([
             'transactions_id' => $transaction->id,
             'username' => Auth::user()->username,
-            'region' => 'ID',
-            'no_hp' =>  '+62',
+            'region' => $transaction_details->region,
+            'no_hp' =>  $transaction_details->no_hp,
         ]);
 
         return redirect()->route('checkout', $transaction->id);
